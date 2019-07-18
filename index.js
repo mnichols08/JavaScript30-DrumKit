@@ -17,6 +17,18 @@
         if (e.propertyName !== 'transform') return;
         this.classList.remove('playing');
         }
+        playBack(){
+            const audio = drumKit.state.memory; 
+            let i = 0;
+                setInterval(() => {
+                    if (i < audio.length ){    
+                        audio[i].play();
+                        document.querySelector(`.key[data-key='${audio[i].dataset.key}']`).classList.add('playing'); // Adds playing class to the key being played back
+                        i++;
+                    };
+                }, 375) // Replays audio from memory every 375ms 
+                document.getElementById('replay').classList.add('playing');
+            }  
     }
     const drumKit = new DrumKit();
     class Sound extends DrumKit{
@@ -24,7 +36,7 @@
             super()
         }
         keyNoise(keypress) {
-        if (keypress.keyCode === 13) {new Sound().playBack()};
+        if (keypress.keyCode === 13) {drumKit.playBack()};
         const audio = document.querySelector(`audio[data-key="${keypress.keyCode}"]`);
         const key = document.querySelector(`.key[data-key="${keypress.keyCode}"`);
         drumKit.makeNoise(audio,key)
@@ -35,16 +47,6 @@
         const key = document.querySelector(`button.key[data-key="${click}"`);
         drumKit.makeNoise(audio,key);
     }
-        playBack(){
-        const audio = drumKit.state.memory; 
-        let i = 0;
-            setInterval(() => {
-                if (i < audio.length ){    
-                    audio[i].play();
-                    i++;
-                };
-            }, 375) // Replays audio from memory every 375ms 
-        }  
     }
     const sound = new Sound()
     
