@@ -1,0 +1,79 @@
+html {
+  font-size: 10px;
+  background: url(img/cloudybg.jpg) bottom
+    center;
+  background-size: cover;
+}
+body,
+html {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  font-family: arial, sans-serif;
+}
+
+button:focus{
+  outline:none;
+}
+
+.keys {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.key {
+  cursor: pointer;
+  border: 0.375rem solid #fedc00;
+  border-radius: 1rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem 0.9rem;
+  transition: all 0.09s ease;
+  width: 8.5rem;
+  text-align: center;
+  color: #ffed82;
+  background: linear-gradient(60deg, #e85aff33, #fef106cf);
+  text-shadow: 0 0 0.5rem black;
+}
+.key.space {
+  width: 28em;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: #020202;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+kbd.space {
+  margin-left: -4px;
+  font-size: 3.6rem;
+}
+
+.sound {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ffc60000;
+  text-shadow: 0px 0px 1px black;
+}
+
+#replay {
+  width: 25%;
+}
